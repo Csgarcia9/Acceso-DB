@@ -1,4 +1,4 @@
-const api = 'http://localhost:3000/clientes';
+const api = 'https://acceso-db.onrender.com/clientes';
 
 const main = document.getElementById("contenido-principal");
 
@@ -74,7 +74,7 @@ fetch(api)
 
     const idEliminar = document.getElementById('id_eliminar').value;
 
-    fetch(`http://localhost:3000/clientes/${idEliminar}`, {
+    fetch(`https://acceso-db.onrender.com/clientes/${idEliminar}`, {
         method: 'DELETE'
     })
     .then(response => {
@@ -134,7 +134,7 @@ fetch(api)
     }
   }
 
-  fetch(`http://localhost:3000/clientes/${idActualizar}`, {
+  fetch(`https://acceso-db.onrender.com/clientes/${idActualizar}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
