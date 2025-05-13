@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Formulario de clientes</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    </head>
+
+    <body class="grid-container">
+        
+        <nav class="navbar navbar-light header">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                <img src="https://www.svgrepo.com/show/530139/operation.svg" alt="svg-plus" width="60" height="30" class="d-inline-block align-text-center" />
+                Registro de Clientes
+                </a>
+            </div>
+        </nav>
+   
+        <div class="left-sidebar d-flex flex-column align-items-center">
+            <div class="mb-3">
+                <button class="btn btn-light" data-bs-toggle="modal" data-bs-target = "#modalAgregar">Agregar Cliente</button>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target = "#modalEditar">Editar Cliente</button>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target = "#modalEliminar">Eliminar Cliente</button>
+            </div>
+        </div>
+        <!-- Modales -->
+
+        <!-- Modal Agregar -->
+        <div class="modal fade" id="modalAgregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Agregar clientes</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="formAgregar" >
+                    <div class="row mb-4">
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="NOMBRE" name = "NOMBRE" class="form-control" required placeholder="Nombre"/>
+                            <label class="form-label" for="NOMBRE">Nombre</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="number" id="EDAD" name = "EDAD" class="form-control" required placeholder="Edad"/>
+                            <label class="form-label" for="EDAD">Edad</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-4">
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="TELEFONO" name = "TELEFONO" class="form-control" required placeholder="Telefono"/>
+                            <label class="form-label" for="TELEFONO">Teléfono</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="EMPRESA" name = "EMPRESA" class="form-control" required placeholder="Ejemplo: NEWTECH"/>
+                            <label class="form-label" for="EMPRESA">Empresa</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-4">
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="email" id="EMAIL" name = "EMAIL" class="form-control" required placeholder="JoeDoe@example.com"/>
+                            <label class="form-label" for="EMAIL">Email</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="ESTADO_CIVIL" name = "ESTADO_CIVIL" class="form-control" required placeholder="Casado-Soltero-Union Libre"/>
+                            <label class="form-label" for="ESTADO_CIVIL">Estado Civil</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="DIRECCION" name = "DIRECCION" class="form-control" required placeholder="Manzana 4, Casa 50, ETC....."/>
+                        <label class="form-label" for="DIRECCION">Direccion</label>
+                      </div>
+                      <button data-mdb-ripple-init type="summit" class="btn btn-primary btn-block mb-4">Crear cliente</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Modal Editar -->
+        <div class="modal fade" id="modalEditar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Editar clientes</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="formEditar">
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="id_editar" name="ID" class="form-control"  required placeholder="ID del cliente"/>
+                        <label class="form-label" for="id_editar">ID Cliente:</label>
+                        <small>Este ID no es editable</small>
+                      </div>
+                    <div class="row mb-4">
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="nombreEditar" name="NOMBRE" class="form-control" placeholder="Nombre"/>
+                            <label class="form-label" for="nombreEditar">Nombre</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="number" id="edadEditar" name="EDAD" class="form-control" placeholder="Edad"/>
+                            <label class="form-label" for="edadEditar">Edad</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-4">
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="telefonoEditar" name="TELEFONO" class="form-control" placeholder="Telefono"/>
+                            <label class="form-label" for="telefonoEditar">Teléfono</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="empresaEditar" name="EMPRESA" class="form-control" placeholder="Ejemplo: NEWTECH"/>
+                            <label class="form-label" for="empresaEditar">Empresa</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-4">
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="email" id="emailEditar" name="EMAIL" class="form-control" placeholder="JoeDoe@example.com"/>
+                            <label class="form-label" for="emailEditar">Email</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="estado_civilEditar" name="ESTADO_CIVIL" class="form-control" placeholder="Casado-Soltero-Union Libre"/>
+                            <label class="form-label" for="estado_civilEditar">Estado Civil</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="direccionEditar" name="DIRECCION" class="form-control" placeholder="Manzana 4, Casa 50, ETC....."/>
+                        <label class="form-label" for="direccionEditar">Direccion</label>
+                      </div>
+                      <button data-mdb-ripple-init type="summit" class="btn btn-primary btn-block mb-4">Editar cliente</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Modal Eliminar -->
+        <div class="modal fade" id="modalEliminar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Eliminar clientes</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="formEliminar">
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="id_eliminar" class="form-control"  required placeholder="ID del cliente"/>
+                        <label class="form-label" for="id_eliminar">ID Cliente:</label>
+                        <small>ID del cliente a eliminar</small>
+                    </div>
+                    <button data-mdb-ripple-init type="summit" class="btn btn-primary btn-block mb-4">Eliminar cliente</button>
+                  </form>
+                  <div class="alert alert-danger" role="alert">
+                    <strong>¡Atención!</strong> Esta acción no se puede deshacer.
+                  </div>    
+                        
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+        <main class="contenido-principal" id="contenido-principal">
+          <!-- pruebas acordiones -->
+  
+
+        </main>
+
+        <footer class="footer d-flex justify-content-center align-items-center flex-column">
+            <div class="mb-1">
+                <span class="footer-label"> Desarrollado por CesDev - Derechos reservados</span>  
+            </div>
+            <div class="mb-1">
+                <span class="footer-label">copyright &copy; 2025</span>
+            </div>
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
+            <script src="/js/app.js"></script>
+    </body>
+</html>

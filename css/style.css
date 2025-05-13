@@ -1,0 +1,123 @@
+.navbar{
+    width: 100%;
+    padding: 20px;
+    top: 0;
+   
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+  
+.btn{
+    width: 200px;
+}
+
+/*Creando el template para el diseño*/
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header'
+      'left-sidebar contenido-principal contenido-principal'
+      'footer footer footer';
+    grid-template-columns: auto 2fr;
+    grid-column-gap: 10px;
+    height: 100vh; /* El grid-container ocupa toda la altura del viewport */
+    grid-template-rows: 10vh 80vh 10vh; /* Header, contenido principal, footer ocupan porcentajes del viewport height */
+    background-image: url('https://images.pexels.com/photos/7233108/pexels-photo-7233108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-repeat: no-repeat;
+}
+
+
+.header {
+    grid-area: header;
+    padding: 20px;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    margin-bottom: 1vh; /* Espacio entre el header y el contenido */
+}
+
+.left-sidebar {
+    grid-area: left-sidebar;
+    padding: 20px;
+    min-height: auto;
+    margin-top: 0; 
+}
+
+
+.contenido-principal {
+    grid-area: contenido-principal;
+    padding: 20px;
+    min-height: auto; 
+    margin-top: 0; 
+}
+
+
+.left-sidebar,
+    .contenido-principal {
+    
+        backdrop-filter: blur(20px);
+        
+    }
+
+
+.form-label{
+    margin: 5px;
+    font-weight: bold;
+    font-style: italic;
+}    
+
+
+.accordion-item{
+    border-radius: 15px;
+}
+.footer {
+    grid-area: footer;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    margin-top: 1vh;
+}
+
+.footer span {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+
+/*
+Resposive Web Design
+*/
+
+@media (max-width: 600px) {
+    .grid-container  {
+        grid-template-areas:
+          'header'
+          'left-sidebar'
+          'contenido-principal'
+          'footer';
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto auto auto auto; 
+        height: auto; /* El contenedor ajusta su altura al contenido */
+    }
+
+    .left-sidebar,
+    .contenido-principal
+     {
+        min-height: auto;
+        margin-top: 0; 
+        
+    }
+
+    .footer {
+        position: static; /* El footer fluye con el contenido en pantallas pequeñas */
+    }
+ }
