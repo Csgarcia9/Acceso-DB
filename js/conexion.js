@@ -2,10 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const mysql  = require('mysql');
 const bodyParser = require('body-parser');
+const path = require('path');
+
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '..'))); 
 
 const connection = mysql.createConnection({
     host: '54.82.98.114',   
@@ -116,6 +121,6 @@ app.delete('/clientes/:id', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
